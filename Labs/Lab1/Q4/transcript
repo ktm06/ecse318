@@ -1,0 +1,26 @@
+# vsim -c -do "run -all; quit" work.TF_divider 
+# Start time: 12:41:27 on Sep 12,2026
+# Loading sv_std.std
+# Loading work.TF_divider
+# Loading work.divider
+# Loading work.cas_row
+# Loading work.cas
+# Loading work.fa
+# run -all
+# ===Start===
+# 
+# Case 1: 7/2
+# 
+# Quotient: 0011, Remainder:0001
+# 
+# Case 2: 6/2
+# 
+# Quotient: 0011, Remainder:0000
+# 
+# Case 3: 9/4
+# 
+# Quotient: 0010, Remainder:0001
+# 
+#  quit
+# End time: 12:41:27 on Sep 12,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
