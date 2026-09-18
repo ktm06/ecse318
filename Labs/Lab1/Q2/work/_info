@@ -1,0 +1,56 @@
+m255
+K4
+z2
+!s11f MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/kippe/ecse318/Labs/Lab1/Q2
+vcla
+Z1 !s110 1789758463
+!i10b 1
+!s100 0A=A;Z:<d0I;Lg]5YB:Z42
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IAhe9EaDO9LV5F9kRC5YNA3
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1789755927
+8cla.v
+Fcla.v
+!i122 10
+L0 3 41
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1789758463.000000
+!s107 TF_cla.v|cla.v|
+Z6 !s90 cla.v|TF_cla.v|
+!i113 1
+Z7 tCvgOpt 0
+vTF_cla
+R1
+!i10b 1
+!s100 7Cfi0?=o?JlY3S2na5;df3
+R2
+IE=Sn1CncSzn><cGD>MhU@2
+R3
+R0
+w1789758460
+8TF_cla.v
+FTF_cla.v
+!i122 10
+L0 2 26
+R4
+r1
+!s85 0
+31
+R5
+Z8 !s107 TF_cla.v|cla.v|
+R6
+!i113 1
+R7
+n@t@f_cla

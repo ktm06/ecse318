@@ -1,0 +1,14 @@
+# vsim -c -do "run -all; quit" work.TF_cla 
+# Start time: 15:07:44 on Sep 18,2026
+# Loading work.TF_cla
+# Loading work.cla
+# run -all
+# initial: s[2] is currently x
+# first add done at              1000000, as s[2] is now x
+# first add done at              1040000, as s[2] is now 1
+# cin change at              2000000
+# time end              2000000: final s[3] is now 0
+# time end              2030000: final s[3] is now 1
+#  quit
+# End time: 15:07:45 on Sep 18,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
