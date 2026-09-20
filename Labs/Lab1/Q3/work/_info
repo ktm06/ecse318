@@ -1,0 +1,101 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/kippe/ecse318/Labs/Lab1/Q3
+vCSA_stage
+Z1 !s110 1789868026
+!i10b 1
+!s100 Diig<RA1QnmiG1MZ^?7=R3
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I3[Oh?zoJ@54T65zeh]>GD1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1789866678
+8CSA_stage.v
+FCSA_stage.v
+!i122 13
+L0 1 12
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1789868026.000000
+!s107 CSA_stage.v|TF_sequence_adder.v|sequence_adder.v|
+Z6 !s90 sequence_adder.v|TF_sequence_adder.v|CSA_stage.v|
+!i113 1
+Z7 tCvgOpt 0
+n@c@s@a_stage
+vsequence_adder
+R1
+!i10b 1
+!s100 >OaWdWa^0ZGCZUXGF3z@h2
+R2
+IJkFHX`0<;4[gc`9f4n`?g0
+R3
+R0
+w1789867969
+8sequence_adder.v
+Fsequence_adder.v
+!i122 13
+L0 1 86
+R4
+r1
+!s85 0
+31
+R5
+Z8 !s107 CSA_stage.v|TF_sequence_adder.v|sequence_adder.v|
+R6
+!i113 1
+R7
+vsequence_testbench
+!s110 1789866723
+!i10b 1
+!s100 S^T`g]WSR0f`a:152RdHO2
+R2
+IHaih=R]L]5T2T]B5k962c2
+R3
+R0
+w1789866674
+Z9 8TF_sequence_adder.v
+Z10 FTF_sequence_adder.v
+!i122 3
+L0 2 44
+R4
+r1
+!s85 0
+31
+!s108 1789866723.000000
+!s107 TF_sequence_adder.v|sequence_adder.v|
+!s90 sequence_adder.v|TF_sequence_adder.v|
+!i113 1
+R7
+vTF_sequence_adder
+R1
+!i10b 1
+!s100 n[[33a_HX^TU]F<8a1mC93
+R2
+I@iKQ;>H;z@1j?aHflHP?;2
+R3
+R0
+w1789868021
+R9
+R10
+!i122 13
+L0 2 38
+R4
+r1
+!s85 0
+31
+R5
+R8
+R6
+!i113 1
+R7
+n@t@f_sequence_adder
