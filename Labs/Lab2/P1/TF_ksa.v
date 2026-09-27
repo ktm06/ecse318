@@ -1,15 +1,15 @@
-TF_ksa();
+module TF_ksa();
 reg [15:0] A;
 reg [15:0] B;
 reg cin;
-reg [15:0] C;
-reg cout;
-    ksa #(N=16) uut 
+wire [15:0] C;
+wire cout;
+    ksa #(.N(16)) uut 
     (
         .A(A),
         .B(B),
         .cin(cin),
-        .C(C),
+        .out(C),
         .cout(cout)
     );
 
@@ -23,6 +23,13 @@ initial begin
     #100
 
     $display("0 + 5 = %d", C);
+    // subtract example 
+    A = 'd5;
+    B = ~('d2);
+    cin = 'd1;
 
-
+    #100
+    $display("5 - 2 = %d", C);
 end
+
+endmodule

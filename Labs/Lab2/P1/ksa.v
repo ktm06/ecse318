@@ -1,12 +1,12 @@
 module ksa #(
     parameter N = 16
 ) (
-    input [N-1:0] wire A,
-    input [N-1:0] wire B,
-    input cin,
-    output [N-1:0] out,
-    output cout
-)
+    input wire [N-1:0] A,
+    input wire [N-1:0] B,
+    input wire cin,
+    output reg [N-1:0] out,
+    output reg cout
+);
 
 // this is the kogge stone adder, which is the fastest adder 
 reg [N-1:0] p0;
@@ -20,8 +20,8 @@ integer i;
 integer d;
 
 always @(*) begin
-    p0 = a ^ b;
-    g = a & b;
+    p0 = A ^ B;
+    g = A & B;
     p = p0;
     g[0] = g[0] | (p[0] & cin);
 
@@ -40,7 +40,7 @@ always @(*) begin
     end
 
     carry = {g, cin};
-    sum = p0 ^ carry[N-1:0];
+    out = p0 ^ carry[N-1:0];
     cout = carry[N];
 
 end

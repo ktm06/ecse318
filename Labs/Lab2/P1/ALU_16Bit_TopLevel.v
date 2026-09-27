@@ -1,18 +1,32 @@
-module 16bit_ALU_TopLevel(
+module ALU_16Bit_TopLevel (
     input wire [15:0] A,
     input wire [15:0] B,
     input wire [4:0] alu_code,
-    output wire [15:0] C,
-    output wire overflow
+    output reg [15:0] C,
+    output reg overflow
+);
+
+reg [15:0] y;
+reg cin;
+wire [15:0] sum;
+wire cout;
+
+ksa #(.N(16)) adder (
+    .A(A),
+    .B(y),
+    .cin(cin),
+    .out(sum),
+    .cout(cout)
 )
+
 
 always @(*) begin
     case (alu_code)
         // arithmetic
         5'b00000: begin // sadd
-            C = $signed(A) + $signed(B);
+            C = sum;
             if (C[15] == 1'b1 & A[15] == 1'b0 & B[15] == 1'b0) begin
-                overflow == 1'b1;
+                overflow = 1'b1;
             end else if (C[15] == 1'b0 & A[15] == 1'b1 & B[15] == 1'b1) begin
                 overflow = 1'b1;
             end else begin
@@ -20,12 +34,14 @@ always @(*) begin
             end
         end
         5'b00001: begin //uadd
-            {overflow, C} = A + B;
+            {overflow, C} = {cout, sum};
         end
         5'b00010: begin //ssub
-            C = $signed(A) - $signed(B);
+            y = ~B;
+            cin = 1'b1;
+            C = sum;
             if (C[15] == 1'b1 & A[15] == 1'b0 & B[15] == 1'b1) begin
-                overflow == 1'b1;
+                overflow = 1'b1;
             end else if (C[15] == 1'b0 & A[15] == 1'b1 & B[15] == 1'b0) begin
                 overflow = 1'b1;
             end else begin
@@ -33,18 +49,23 @@ always @(*) begin
             end
         end
         5'b00011: begin //usub
-            {ovwrflow, C} = A - B;
+            y = ~B;
+            cin = 1'b1;
+            {overflow, C} = {~cout, sum};
         end
         5'b00100: begin  //signed inc
-            C = $signed(A) + 16'b1;
+            y = 16'd0;
+            cin = 1'b1;
+            C = sum;
             if (C[15] == 1'b1 & A[15] == 1'b0) begin
-                overflow == 1'b1;
+                overflow = 1'b1;
             end else begin
                 overflow = 1'b0;
             end
         end
         5'b00101: begin //signed dec
-            C = $signed(A) - 16'b1;
+            y = 16'hFFFF;
+            C = sum;
             if (C[15] == 1'b0 & A[15] == 1'b1) begin
                 overflow = 1'b1;
             end else begin
@@ -136,6 +157,10 @@ always @(*) begin
                 C = 16'd0;
             end
             overflow = 1'b0;
+        end
+        default: begin
+            C = 16'd0;
+            overflow = 16'd0;
         end
     endcase
 
