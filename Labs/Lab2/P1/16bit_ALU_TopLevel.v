@@ -72,19 +72,19 @@ always @(*) begin
 
         // shift
         5'b10000: begin //sll
-            C = A << B;
+            C = A << B[3:0];
             overflow = 1'b0;
         end
         5'b10001: begin //srl
-            C = A >> B;
+            C = A >> B[3:0];
             overflow = 1'b0;
         end
         5'b10010: begin //sla
-            C = A <<< B;
+            C = A <<< B[3:0];
             overflow = 1'b0;
         end
         5'b10011: begin //sra
-            C = A >>> B;
+            C = A >>> B[3:0];
             overflow = 1'b0;
         end
 
