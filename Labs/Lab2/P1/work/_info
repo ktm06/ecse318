@@ -1,10 +1,56 @@
 m255
 K4
 z2
+!s11f MIXED_VERSIONS
 13
 !s112 1.1
 !i10d 8192
 !i10e 25
 !i10f 100
 cModel Technology
-dC:/Users/kippe/ecse318/Labs/Lab2/P1
+Z0 dC:/Users/kippe/ecse318/Labs/Lab2/P1
+vksa
+Z1 !s110 1790544760
+!i10b 1
+!s100 T16QSUc@zg^b057G8ghKC1
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IEHc07MB0M^TS2[jFXjP0z3
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1790543882
+8ksa.v
+Fksa.v
+!i122 8
+L0 1 49
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1790544760.000000
+!s107 ksa.v|TF_ksa.v|
+Z6 !s90 TF_ksa.v|ksa.v|
+!i113 1
+Z7 tCvgOpt 0
+vTF_ksa
+R1
+!i10b 1
+!s100 LP[jJJCmULLL<`l[cEln90
+R2
+Im_fHnfaIV[0Qe3<<m;kdQ3
+R3
+R0
+w1790544740
+8TF_ksa.v
+FTF_ksa.v
+!i122 8
+L0 1 35
+R4
+r1
+!s85 0
+31
+R5
+Z8 !s107 ksa.v|TF_ksa.v|
+R6
+!i113 1
+R7
+n@t@f_ksa

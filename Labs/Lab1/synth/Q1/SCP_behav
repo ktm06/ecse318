@@ -1,0 +1,11 @@
+read /mgc/Leonardo/lib/ami05_typ.syn
+read /home/ktm63/synth/Q1/Lab1-1Behav.v
+pre_optimize -common_logic -unused_logic -boundary -xor_comparator_optimize
+pre_optimize -extract
+optimize -macro -auto -effort quick -hierarchy auto
+optimize .work.top_module_behav.INTERFACE -macro -auto -effort quick -hierarchy auto
+optimize_timing .work.top_module_behav.INTERFACE
+report_delay -num_paths 1 -show_schematic 1 -critical_paths
+auto_write /home/ktm63/synth/Q1/Proc_behav.sdf
+auto_write /home/ktm63/synth/Q1/Proc_behav.v
+report_delay -num_paths 1 /home/ktm63/synth/Q1/timing_behav.rpt

@@ -1,0 +1,11 @@
+source /home/ktm63/synth/Q1/SCP_behav
+clean_all
+source /home/ktm63/synth/Q1/SCP_struct
+clean_all
+source /home/ktm63/synth/Q2/SCP
+clean_all
+source /home/ktm63/synth/Q3/SCP
+clean_all
+source /home/ktm63/synth/Q4/SCP
+clean_all
+source /home/ktm63/synth/Q5/SCP

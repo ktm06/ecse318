@@ -6,20 +6,38 @@ reg [4:0] instruction;
 reg overflow;
 
 localparam [4:0]
-    ADD = 5'b00000;
-    ADDU = 5'b00001;
-    SUB = 5'b00010;
-    SUBU = 5'b00011;
-    INC = 5'b00100;
-    DEC = 5'b00101;
-    AND = 5'b01000;
-    OR = 5'b01001;
-    XOR = 5'b01010;
-    NOT = 5'b01100;
-    SLL = 5'b10000;
-    SRL = 5'b10001;
-    SLA = 5'b10010;
-    SRA = 5'b10011;
+    ADD = 5'b00000,
+    ADDU = 5'b00001,
+    SUB = 5'b00010,
+    SUBU = 5'b00011,
+    INC = 5'b00100,
+    DEC = 5'b00101,
+    AND = 5'b01000,
+    OR = 5'b01001,
+    XOR = 5'b01010,
+    NOT = 5'b01100,
+    SLL = 5'b10000,
+    SRL = 5'b10001,
+    SLA = 5'b10010,
+    SRA = 5'b10011,
+    SLE = 5'b11000,
+    SLT = 5'b11001,
+    SGE = 5'b11010,
+    SGT = 5'b11011,
+    SEQ = 5'b11100,
+    SNE = 5'b11101;
 
+    function 
 
+    16bit_ALU_TopLevel uut (
+        .A(A),
+        .B(B),
+        .alu_code(instruction),
+        .C(C),
+        .overflow(overflow)
+    );
+initial begin
+
+end
 endmodule
+
