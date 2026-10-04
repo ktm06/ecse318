@@ -9,30 +9,76 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/kippe/ecse318/Labs/Lab2/P1
+vALU_16Bit_TopLevel
+Z1 !s110 1791087400
+!i10b 1
+!s100 ;n_fUg5IAFEemDa1Z[WfP2
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IJ>j^j1XNH4?_>je6VKoh13
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1791085769
+8ALU_16Bit_TopLevel.v
+FALU_16Bit_TopLevel.v
+!i122 9
+L0 1 172
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1791087400.000000
+!s107 TF_16bit_ALU.v|ALU_16Bit_TopLevel.v|
+Z6 !s90 ALU_16Bit_TopLevel.v|TF_16bit_ALU.v|
+!i113 1
+Z7 tCvgOpt 0
+n@a@l@u_16@bit_@top@level
 vksa
-Z1 !s110 1790544760
+Z8 !s110 1790544760
 !i10b 1
 !s100 T16QSUc@zg^b057G8ghKC1
-Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+R2
 IEHc07MB0M^TS2[jFXjP0z3
-Z3 VDg1SIo80bB@j0V0VzS_@n1
+R3
 R0
 w1790543882
 8ksa.v
 Fksa.v
 !i122 8
 L0 1 49
-Z4 OV;L;2020.1;71
+R4
 r1
 !s85 0
 31
-Z5 !s108 1790544760.000000
-!s107 ksa.v|TF_ksa.v|
-Z6 !s90 TF_ksa.v|ksa.v|
+Z9 !s108 1790544760.000000
+Z10 !s107 ksa.v|TF_ksa.v|
+Z11 !s90 TF_ksa.v|ksa.v|
 !i113 1
-Z7 tCvgOpt 0
-vTF_ksa
+R7
+vTF_16bit_ALU
 R1
+!i10b 1
+!s100 `V^iOh79Qi8DcSPR9jJJ[2
+R2
+IcM<4CNB]=AnOJ_SaXVKib2
+R3
+R0
+w1791087329
+8TF_16bit_ALU.v
+FTF_16bit_ALU.v
+!i122 9
+L0 1 100
+R4
+r1
+!s85 0
+31
+R5
+Z12 !s107 TF_16bit_ALU.v|ALU_16Bit_TopLevel.v|
+R6
+!i113 1
+R7
+n@t@f_16bit_@a@l@u
+vTF_ksa
+R8
 !i10b 1
 !s100 LP[jJJCmULLL<`l[cEln90
 R2
@@ -48,9 +94,9 @@ R4
 r1
 !s85 0
 31
-R5
-Z8 !s107 ksa.v|TF_ksa.v|
-R6
+R9
+R10
+R11
 !i113 1
 R7
 n@t@f_ksa

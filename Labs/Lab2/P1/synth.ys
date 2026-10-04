@@ -1,0 +1,7 @@
+read_verilog ksa.v
+read_verilog ALU_16Bit_TopLevel.v
+synth -top ALU_16Bit_TopLevel -flatten
+abc -liberty osu05_stdcells.lib -script +strash;dch,-f;map,-p;topo;buffer,-p;upsize;dnsize;stime,-p;
+opt_clean
+stat -liberty osu05_stdcells.lib
+write_verilog -noattr ALU_netlist.v

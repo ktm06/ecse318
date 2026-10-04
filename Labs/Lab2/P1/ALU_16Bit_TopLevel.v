@@ -17,10 +17,12 @@ ksa #(.N(16)) adder (
     .cin(cin),
     .out(sum),
     .cout(cout)
-)
+);
 
 
 always @(*) begin
+    y = B;
+    cin = 1'b0;
     case (alu_code)
         // arithmetic
         5'b00000: begin // sadd
@@ -93,25 +95,25 @@ always @(*) begin
 
         // shift
         5'b10000: begin //sll
-            C = A << B[3:0];
+            C = $signed(A) << B[3:0];
             overflow = 1'b0;
         end
         5'b10001: begin //srl
-            C = A >> B[3:0];
+            C = $signed(A) >> B[3:0];
             overflow = 1'b0;
         end
         5'b10010: begin //sla
-            C = A <<< B[3:0];
+            C = $signed(A) <<< B[3:0];
             overflow = 1'b0;
         end
         5'b10011: begin //sra
-            C = A >>> B[3:0];
+            C = $signed(A) >>> B[3:0];
             overflow = 1'b0;
         end
 
         //set
         5'b11000: begin //sle
-            if (A <= B) begin
+            if ($signed(A) <= $signed(B)) begin
                 C = 16'd1;
             end else begin
                 C = 16'd0;
@@ -119,7 +121,7 @@ always @(*) begin
             overflow = 1'b0;
         end
         5'b11001: begin //slt
-        if (A < B) begin
+        if ($signed(A) < $signed(B)) begin
                 C = 16'd1;
             end else begin
                 C = 16'd0;
@@ -127,7 +129,7 @@ always @(*) begin
             overflow = 1'b0;
         end
         5'b11010: begin //sge
-        if (A >= B) begin
+        if ($signed(A) >= $signed(B)) begin
                 C = 16'd1;
             end else begin
                 C = 16'd0;
@@ -135,7 +137,7 @@ always @(*) begin
             overflow = 1'b0;
         end
         5'b11011: begin //sgt
-        if (A > B) begin
+        if ($signed(A) > $signed(B)) begin
                 C = 16'd1;
             end else begin
                 C = 16'd0;
@@ -160,7 +162,7 @@ always @(*) begin
         end
         default: begin
             C = 16'd0;
-            overflow = 16'd0;
+            overflow = 1'b0;
         end
     endcase
 

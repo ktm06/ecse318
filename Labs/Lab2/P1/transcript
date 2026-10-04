@@ -1,10 +1,55 @@
-# vsim -c -do "run -all; quit" work.TF_ksa 
-# Start time: 17:32:44 on Sep 27,2026
-# Loading work.TF_ksa
+# vsim -c -do "run -all; quit -f" work.TF_16bit_ALU 
+# Start time: 00:17:24 on Oct 04,2026
+# Loading work.TF_16bit_ALU
+# Loading work.ALU_16Bit_TopLevel
 # Loading work.ksa
 # run -all
-# 0 + 5 =     5
-# 5 - 2 =     3
-#  quit
-# End time: 17:32:44 on Sep 27,2026, Elapsed time: 0:00:00
+# op=00000  A=0000  B=0001  ->  C=0001  overflow=0
+# op=00000  A=000f  B=000f  ->  C=001e  overflow=0
+# op=00000  A=7f00  B=0300  ->  C=8200  overflow=1
+# op=00000  A=ff00  B=0100  ->  C=0000  overflow=0
+# op=00000  A=8100  B=8000  ->  C=0100  overflow=1
+# op=00001  A=0000  B=0001  ->  C=0001  overflow=0
+# op=00001  A=000f  B=000f  ->  C=001e  overflow=0
+# op=00001  A=7f00  B=0300  ->  C=8200  overflow=0
+# op=00001  A=ff00  B=0100  ->  C=0000  overflow=1
+# op=00001  A=8100  B=8000  ->  C=0100  overflow=1
+# op=00010  A=0000  B=0001  ->  C=ffff  overflow=0
+# op=00010  A=000f  B=000f  ->  C=0000  overflow=0
+# op=00010  A=7f00  B=0300  ->  C=7c00  overflow=0
+# op=00010  A=ff00  B=0100  ->  C=fe00  overflow=0
+# op=00010  A=8100  B=8000  ->  C=0100  overflow=0
+# op=00011  A=0000  B=0001  ->  C=ffff  overflow=1
+# op=00011  A=ff00  B=fce0  ->  C=0220  overflow=0
+# op=00011  A=7f00  B=0300  ->  C=7c00  overflow=0
+# op=00011  A=ff00  B=0100  ->  C=fe00  overflow=0
+# op=00011  A=8100  B=8000  ->  C=0100  overflow=0
+# op=00100  A=0000  B=0100  ->  C=0001  overflow=0
+# op=00100  A=0f00  B=0f00  ->  C=0f01  overflow=0
+# op=00100  A=7fff  B=0300  ->  C=8000  overflow=1
+# op=00100  A=ff00  B=0100  ->  C=ff01  overflow=0
+# op=00100  A=8100  B=8000  ->  C=8101  overflow=0
+# op=00101  A=0000  B=0100  ->  C=ffff  overflow=0
+# op=00101  A=000f  B=000f  ->  C=000e  overflow=0
+# op=00101  A=7f00  B=0300  ->  C=7eff  overflow=0
+# op=00101  A=ff00  B=0100  ->  C=feff  overflow=0
+# op=00101  A=8000  B=8000  ->  C=7fff  overflow=1
+# op=01000  A=f0f0  B=ff00  ->  C=f000  overflow=0
+# op=01001  A=f0f0  B=0f0f  ->  C=ffff  overflow=0
+# op=01010  A=aaaa  B=ffff  ->  C=5555  overflow=0
+# op=01100  A=1234  B=0000  ->  C=edcb  overflow=0
+# op=10000  A=0001  B=000f  ->  C=8000  overflow=0
+# op=10001  A=8000  B=000f  ->  C=0001  overflow=0
+# op=10010  A=4001  B=0001  ->  C=8002  overflow=0
+# op=10011  A=f000  B=0004  ->  C=ff00  overflow=0
+# op=10011  A=7000  B=fff4  ->  C=0700  overflow=0
+# op=11000  A=8000  B=7fff  ->  C=0001  overflow=0
+# op=11001  A=ffff  B=0001  ->  C=0001  overflow=0
+# op=11010  A=7fff  B=8000  ->  C=0001  overflow=0
+# op=11011  A=ffff  B=0001  ->  C=0000  overflow=0
+# op=11100  A=beef  B=beef  ->  C=0001  overflow=0
+# op=11101  A=beef  B=beef  ->  C=0000  overflow=0
+# ** Note: $finish    : TF_16bit_ALU.v(98)
+#    Time: 450 ps  Iteration: 0  Instance: /TF_16bit_ALU
+# End time: 00:17:24 on Oct 04,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0

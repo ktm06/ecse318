@@ -1,0 +1,3 @@
+I utilized Yosys 0.33 and its built-in ABC mapper onto the OSU 0.5 µm standard-cell library.
+
+Based on the synthesis, we found that the worst case path runs from alu_code[3] to overflow, with a delay of 4.17 ns through 16 gates. The path first decodes alu_code into the select signal for the y mux and buffers it out to all 16 bits. It then passes through the y mux and the propagate XOR (A ^ y), through the Kogge-Stone carry tree up to bit 15, and ends at the signed overflow logic. About 1.7 ns of the delay is spent decoding and buffering alu_code before the addition even starts, while the adder itself takes about 1.8 ns.
