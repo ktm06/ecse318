@@ -1,7 +1,8 @@
 module registerFile (clk, rst, write_en, read_addr1, read_addr2, write_addr, read_data1, read_data2, write_data);
 
-output reg [31:0] read_data1, read_data2;
-input [31:0] write_addr, write_data;
+output [31:0] read_data1, read_data2;
+input [31:0] write_data;
+input [11:0] write_addr;
 input [3:0] read_addr1, read_addr2;
 input clk, rst , write_en;
 
@@ -10,21 +11,24 @@ reg [31:0] regs [15:0];
 assign read_data1 = regs[read_addr1];
 assign read_data2 = regs[read_addr2];
 
-always @(posedge clk) begin
+genvar i;
+generate
+    always @(posedge clk) begin
     if (rst) begin
-        for (int i = 0; i < 16; i++) begin
+        for (i = 0; i < 16; i++) begin
             regs[i] <= 32'b0;
         end
     end else if (write_en) begin
         regs[write_addr] <= write_data;
     end
 end
+endgenerate
 
 endmodule
 
 module ramModel (clk, rst, addr, write_data, read_data, en);
-    output reg [31:0] read_data;
-    input [31:0] wite_data;
+    output [31:0] read_data;
+    input [31:0] write_data;
     input [11:0] addr;
     input clk, rst, en;
 
@@ -32,21 +36,24 @@ module ramModel (clk, rst, addr, write_data, read_data, en);
 
     assign read_data = mem[addr];
 
-always @(posedge clk) begin
-    if (rst) begin
-        for (int i = 0; i < 4096; i++) begin
-            mem[i] <= 32'b0;
+genvar i;
+generate
+    always @(posedge clk) begin
+        if (rst) begin
+            for (int i = 0; i < 4096; i++) begin
+                mem[i] <= 32'b0;
+            end
+        end else if (en) begin
+            mem[addr] <= write_data;
         end
-    end else if (en) begin
-        mem[addr] <= write_data;
-    end
 end
+endgenerate
     
 endmodule
 
 module ALU (op1, op2, opcode, cnt, psr, result);
-    output reg [31:0] result;
-    output reg [4:0] psr; 
+    output [31:0] result;
+    output [4:0] psr; 
     input [31:0] op1, op2;
     input [11:0] cnt;
     input [2:0] opcode;
@@ -87,8 +94,8 @@ module ALU (op1, op2, opcode, cnt, psr, result);
 endmodule
 
 module controlUnit (ir, psr, reg_write, alu_op, mem_write, pc_increment, pc_load);
-output reg reg_write, mem_write, pc_increment, pc_load;
-output reg [2:0] alu_op;
+output reg_write, mem_write, pc_increment, pc_load;
+output [2:0] alu_op;
 input [31:0] ir;
 input [4:0] psr 
 
@@ -140,17 +147,18 @@ always @(*) begin
             alu_op = 3'b101;
             pc_increment = 1;
         end
-        5'1000: begin
+        5'b1000: begin
             pc_increment = 0;
         end
         5'b1001: begin
             reg_write = 1;
             alu_op = 3'b011;
             pc_increment = 1;
-            psr[0] = 1'b0;
         end
     endcase
     
+end
+
     function reg conditionCode (input [2:0] cc, input [4:0] psr);
     
     case (cc)
@@ -164,13 +172,11 @@ always @(*) begin
         3'b111: conditionCode = (!psr[3]) && (!psr[4]);
     endcase
     endfunction
-
-end
 endmodule
 
 module instructionRegister (clk, ir_in, ir_out);
-output reg [31:0] ir_out;
-input [31:0] ir;
+output [31:0] ir_out;
+input [31:0] ir_in;
 input clk;
 
 always @(posedge clk) begin
@@ -181,7 +187,7 @@ endmodule
 module programCounter (clk, rst, pc_load, pc_increment, load_addr, pc_out);
 input clk, rst, pc_load, pc_increment;
 input [11:0] load_addr;
-output reg [11:0] pc_out;
+output [11:0] pc_out;
 
 always @(posedge clk) begin
     if (rst) begin
@@ -191,7 +197,7 @@ always @(posedge clk) begin
     end else if (pc_increment) begin
         pc_out <= pc_out + 1;
     end else begin
-        pc_out = pc_out;
+        pc_out <= pc_out;
     end
 end
     
