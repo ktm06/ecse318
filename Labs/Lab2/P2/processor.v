@@ -211,6 +211,3 @@ always @(posedge clk) begin
 end
     
 endmodule
-
-
-/*  Sorry, back to the shift_count in the ALU, I am not sure we addressed this but I believe based on the specifications I think the shift_count should be implemented where if the count > 0 we are shift/rotating right and if the count < 0 we are shift/rotating to the left so this means +- 16 */
