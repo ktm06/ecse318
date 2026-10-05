@@ -12,6 +12,7 @@ initial begin
     #20;
     rst = 0;
 
+    // Part 2a
     uut.mem.mem[0] = 32'h10000000;
     uut.mem.mem[1] = 32'h90000000;
     uut.mem.mem[2] = 32'h50000001;
@@ -24,6 +25,7 @@ initial begin
     #20;
     rst = 0;
 
+    // Part 2b
     uut.mem.mem[0] = 32'h10000001;
     uut.mem.mem[1] = 32'h18000002;
     uut.mem.mem[2] = 32'h18000003; 
@@ -44,6 +46,7 @@ initial begin
     #20;
     rst = 0;
 
+    // Part 2c
     uut.mem.mem[0] = 32'h10000001;
     uut.mem.mem[1] = 32'h10000002;
     uut.mem.mem[2] = 32'h18000003; 
