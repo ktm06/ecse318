@@ -1,8 +1,7 @@
-# vsim -c -do "run -all; quit -f" work.TF_16bit_ALU 
-# Start time: 00:17:24 on Oct 04,2026
-# Loading work.TF_16bit_ALU
-# Loading work.ALU_16Bit_TopLevel
-# Loading work.ksa
+# vsim -c -do "run -all; quit -f" work.TF_Unoptimized_ALU 
+# Start time: 21:42:38 on Oct 06,2026
+# Loading work.TF_Unoptimized_ALU
+# Loading work.Unoptimized_ALU
 # run -all
 # op=00000  A=0000  B=0001  ->  C=0001  overflow=0
 # op=00000  A=000f  B=000f  ->  C=001e  overflow=0
@@ -49,7 +48,7 @@
 # op=11011  A=ffff  B=0001  ->  C=0000  overflow=0
 # op=11100  A=beef  B=beef  ->  C=0001  overflow=0
 # op=11101  A=beef  B=beef  ->  C=0000  overflow=0
-# ** Note: $finish    : TF_16bit_ALU.v(98)
-#    Time: 450 ps  Iteration: 0  Instance: /TF_16bit_ALU
-# End time: 00:17:24 on Oct 04,2026, Elapsed time: 0:00:00
+# ** Note: $finish    : TF_Unoptimized_ALU.v(98)
+#    Time: 450 ps  Iteration: 0  Instance: /TF_Unoptimized_ALU
+# End time: 21:42:39 on Oct 06,2026, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0

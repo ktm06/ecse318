@@ -27,13 +27,36 @@ r1
 !s85 0
 31
 Z5 !s108 1791087400.000000
-!s107 TF_16bit_ALU.v|ALU_16Bit_TopLevel.v|
-Z6 !s90 ALU_16Bit_TopLevel.v|TF_16bit_ALU.v|
+Z6 !s107 TF_16bit_ALU.v|ALU_16Bit_TopLevel.v|
+Z7 !s90 ALU_16Bit_TopLevel.v|TF_16bit_ALU.v|
 !i113 1
-Z7 tCvgOpt 0
+Z8 tCvgOpt 0
 n@a@l@u_16@bit_@top@level
+vALU_16Bit_Unoptimized
+!s110 1791337285
+!i10b 1
+!s100 k]6061o91]1eDe7PgeZQd0
+R2
+IlT5WYPhVdYVTE2DVfU?>82
+R3
+R0
+w1791337184
+Z9 8Unoptimized_ALU.v
+Z10 FUnoptimized_ALU.v
+!i122 10
+Z11 L0 1 149
+R4
+r1
+!s85 0
+31
+!s108 1791337285.000000
+!s107 TF_Unoptimized_ALU.v|Unoptimized_ALU.v|
+Z12 !s90 Unoptimized_ALU.v|TF_Unoptimized_ALU.v|
+!i113 1
+R8
+n@a@l@u_16@bit_@unoptimized
 vksa
-Z8 !s110 1790544760
+Z13 !s110 1790544760
 !i10b 1
 !s100 T16QSUc@zg^b057G8ghKC1
 R2
@@ -49,11 +72,11 @@ R4
 r1
 !s85 0
 31
-Z9 !s108 1790544760.000000
-Z10 !s107 ksa.v|TF_ksa.v|
-Z11 !s90 TF_ksa.v|ksa.v|
+Z14 !s108 1790544760.000000
+Z15 !s107 ksa.v|TF_ksa.v|
+Z16 !s90 TF_ksa.v|ksa.v|
 !i113 1
-R7
+R8
 vTF_16bit_ALU
 R1
 !i10b 1
@@ -66,19 +89,19 @@ w1791087329
 8TF_16bit_ALU.v
 FTF_16bit_ALU.v
 !i122 9
-L0 1 100
+Z17 L0 1 100
 R4
 r1
 !s85 0
 31
 R5
-Z12 !s107 TF_16bit_ALU.v|ALU_16Bit_TopLevel.v|
 R6
-!i113 1
 R7
+!i113 1
+R8
 n@t@f_16bit_@a@l@u
 vTF_ksa
-R8
+R13
 !i10b 1
 !s100 LP[jJJCmULLL<`l[cEln90
 R2
@@ -94,9 +117,55 @@ R4
 r1
 !s85 0
 31
+R14
+R15
+R16
+!i113 1
+R8
+n@t@f_ksa
+vTF_Unoptimized_ALU
+Z18 !s110 1791337357
+!i10b 1
+!s100 gP6OekiQidl5cn9O6`>8C0
+R2
+I7aSG8`=jfBaYfh1G5cS8b1
+R3
+R0
+w1791337237
+8TF_Unoptimized_ALU.v
+FTF_Unoptimized_ALU.v
+!i122 11
+R17
+R4
+r1
+!s85 0
+31
+Z19 !s108 1791337357.000000
+Z20 !s107 TF_Unoptimized_ALU.v|Unoptimized_ALU.v|
+R12
+!i113 1
+R8
+n@t@f_@unoptimized_@a@l@u
+vUnoptimized_ALU
+R18
+!i10b 1
+!s100 kaP3f91z<hOZ>Bokh_X8d3
+R2
+IazeFB]j38hmZ]`DLTK;gz2
+R3
+R0
+w1791337354
 R9
 R10
+!i122 11
 R11
+R4
+r1
+!s85 0
+31
+R19
+R20
+R12
 !i113 1
-R7
-n@t@f_ksa
+R8
+n@unoptimized_@a@l@u
