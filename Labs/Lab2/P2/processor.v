@@ -3,7 +3,7 @@ module registerFile (clk, rst, write_en, read_addr1, read_addr2, write_addr, rea
 output [31:0] read_data1, read_data2;
 input [31:0] write_data;
 input [11:0] write_addr;
-input [3:0] read_addr1, read_addr2;
+input [11:0] read_addr1, read_addr2;
 input clk, rst , write_en;
 
 reg [31:0] regs [15:0];
@@ -11,8 +11,7 @@ reg [31:0] regs [15:0];
 assign read_data1 = regs[read_addr1];
 assign read_data2 = regs[read_addr2];
 
-genvar i;
-generate
+integer i;
     always @(posedge clk) begin
     if (rst) begin
         for (i = 0; i < 16; i++) begin
@@ -22,7 +21,6 @@ generate
         regs[write_addr] <= write_data;
     end
 end
-endgenerate
 
 endmodule
 
@@ -36,28 +34,28 @@ module ramModel (clk, rst, addr, write_data, read_data, en);
 
     assign read_data = mem[addr];
 
-genvar i;
-generate
+integer i;
     always @(posedge clk) begin
         if (rst) begin
-            for (int i = 0; i < 4096; i++) begin
+            for (i = 0; i < 4096; i++) begin
                 mem[i] <= 32'b0;
             end
         end else if (en) begin
             mem[addr] <= write_data;
         end
 end
-endgenerate
     
 endmodule
 
 module ALU (op1, op2, opcode, cnt, psr, result);
-    output [31:0] result;
-    output [4:0] psr; 
+    output reg [31:0] result;
+    output reg [4:0] psr; 
     input [31:0] op1, op2;
     input [11:0] cnt;
     input [2:0] opcode;
+    reg [31:0] temp;
     
+    integer i;
     always @(*) begin
         case (opcode)
             3'b001: begin
@@ -73,7 +71,15 @@ module ALU (op1, op2, opcode, cnt, psr, result);
             end
             3'b100: begin
                 psr[0] = cnt > 0 ? op1[cnt-1] : op1[31 - (cnt-1)];
-                result = {op1[cnt-1:0], op1[31:cnt]};
+                
+            temp = op1;
+            for (i = 0; i < cnt; i = i + 1) begin
+            result[i] = temp[31 - i]; 
+            end
+            for (i = cnt; i < 32; i = i + 1) begin
+                result[i] = temp[31 - (i - cnt)]; 
+            end
+
             end
             3'b101: begin
                 psr[0] = cnt > 0 ? op1[cnt-1] : op1[31 - (cnt-1)];
@@ -94,10 +100,10 @@ module ALU (op1, op2, opcode, cnt, psr, result);
 endmodule
 
 module controlUnit (ir, psr, reg_write, alu_op, mem_write, pc_increment, pc_load);
-output reg_write, mem_write, pc_increment, pc_load;
-output [2:0] alu_op;
+output reg reg_write, mem_write, pc_increment, pc_load;
+output reg [2:0] alu_op;
 input [31:0] ir;
-input [4:0] psr 
+output reg [4:0] psr; 
 
 always @(*) begin
     alu_op = 3'b000;
@@ -175,7 +181,7 @@ end
 endmodule
 
 module instructionRegister (clk, ir_in, ir_out);
-output [31:0] ir_out;
+output reg [31:0] ir_out;
 input [31:0] ir_in;
 input clk;
 
@@ -185,9 +191,9 @@ end
 endmodule
 
 module programCounter (clk, rst, pc_load, pc_increment, load_addr, pc_out);
+output reg [11:0] pc_out;
 input clk, rst, pc_load, pc_increment;
 input [11:0] load_addr;
-output [11:0] pc_out;
 
 always @(posedge clk) begin
     if (rst) begin
@@ -203,8 +209,8 @@ end
     
 endmodule
 
-module psr (clk, rst, psr_update, psr_out);
-output [4:0] psr_out;
+module PSR (clk, rst, psr_update, psr_out);
+output reg [4:0] psr_out;
 input [4:0] psr_update;
 input clk, rst;
 
