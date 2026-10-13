@@ -3,7 +3,8 @@ module sequence_adder(sum, O0, O1, O2, O3, O4, O5, O6, O7, O8, O9);
 output [11:0] sum;
 input [7:0] O0, O1, O2, O3, O4, O5, O6, O7, O8, O9;
 wire [11:0] CSA_8[0:6], CSA_9[0:4], CSA_10[0:3], CSA_11[0:2], CSA_12;
-wire [11:0] carry_9[0:2], carry_10[0:1], carry_11[0:1], carry_12, carry_13;
+wire [12:0] carry_9[0:2], carry_10[0:1], carry_11[0:1], carry_12, carry_13;
+
 
 // 10 operands -> 7 operands
 genvar i;
@@ -19,13 +20,12 @@ endgenerate
 assign carry_9[0][0] = 1'b0;
 assign carry_9[1][0] = 1'b0;
 assign carry_9[2][0] = 1'b0;
-assign CSA_8[3] = carry_9[0][12:0];
-assign CSA_8[4] = carry_9[1][12:0];
-assign CSA_8[5] = carry_9[2][12:0];
+assign CSA_8[3] = carry_9[0][12:1];
+assign CSA_8[4] = carry_9[1][12:1];
+assign CSA_8[5] = carry_9[2][12:1];
 assign CSA_8[6] = O9;
 
 // 7 operands -> 5 operands
-genvar i;
 generate
     for (i = 0; i < 12; i = i + 1)
     begin
@@ -36,12 +36,11 @@ endgenerate
 
 assign carry_10[0][0] = 1'b0;
 assign carry_10[1][0] = 1'b0;
-assign CSA_9[2] = carry_10[0][12:0];
-assign CSA_9[3] = carry_10[1][12:0];
+assign CSA_9[2] = carry_10[0][12:1];
+assign CSA_9[3] = carry_10[1][12:1];
 assign CSA_9[4] = CSA_8[6];
 
 // 5 operands -> 4 operands
-genvar i;
 generate
     for (i = 0; i < 12; i = i + 1)
     begin
@@ -52,11 +51,10 @@ endgenerate
 
 assign carry_11[0][0] = 1'b0;
 assign carry_11[1][0] = 1'b0;
-assign CSA_10[2] = carry_11[0][12:0];
-assign CSA_10[3] = carry_11[1][12:0];
+assign CSA_10[2] = carry_11[0][12:1];
+assign CSA_10[3] = carry_11[1][12:1];
 
 // 4 operands -> 3 operands
-genvar i;
 generate
     for (i = 0; i < 12; i = i + 1)
     begin
@@ -64,18 +62,29 @@ generate
     end
 endgenerate
 
+initial begin
+    $monitor("Carry 12%d", carry_12);
+end
+
+
 assign carry_12[0] = 1'b0;
-assign CSA_11[1] = carry_12[12:0];
+assign CSA_11[1] = carry_12[12:1];
 assign CSA_11[2] = CSA_10[3];
 
+
 // 3 operands -> 2 operands
-genvar i;
 generate
     for (i = 0; i < 12; i = i + 1)
     begin
         CSA_stage U5_1 (.s(CSA_12[i]), .c_out(carry_13[i + 1]), .a(CSA_11[0][i]), .b(CSA_11[1][i]), .c(CSA_11[2][i]));
     end
 endgenerate
+
+initial begin
+    $monitor("CSA_12%d", CSA_12);
+    $monitor("Carry 13%d", carry_13);
+end
+
 
 assign carry_13[0] = 1'b0;
 assign sum = CSA_12 + carry_13;

@@ -1,8 +1,8 @@
-'timescale 1ns/10ps
+`timescale 1ns/10ps
 module sequence_testbench();
 
 wire [11:0] sum;
-wire [7:0] O0, O1, O2, O3, O4, O5, O6, O7, O8, O9;
+reg [7:0] O0, O1, O2, O3, O4, O5, O6, O7, O8, O9;
 
 sequence_adder UUT(sum, O0, O1, O2, O3, O4, O5, O6, O7, O8, O9);
 
@@ -17,8 +17,8 @@ initial begin
     O7 = 8'd15;
     O8 = 8'd0;
     O9 = 8'd0;
-    #10
-    
+    #10;
+    $display("Time = %t - Addition Sequence: %d + %d + %d + %d + %d + %d + %d + %d + %d + %d = %d", $time, O0, O1, O2, O3, O4, O5, O6, O7, O8, O9, sum);
 end
 
 initial begin
@@ -33,13 +33,12 @@ initial begin
     O7 = 8'd10;
     O8 = 8'd0;
     O9 = 8'd0;
-    #10
+    #10;
+    $display("Time = %t - Addition Sequence: %d + %d + %d + %d + %d + %d + %d + %d + %d + %d = %d", $time, O0, O1, O2, O3, O4, O5, O6, O7, O8, O9, sum);
 end
 
 initial begin
-    $monitor("Time = %t - Addition Sequence: %d + %d + %d + %d + %d + %d + %d + %d + %d + %d = %d",
-    $time, O0, O1, O2, O3, O4, O5, O6, O7, O8, O9, sum);
-    #100;
+    #200;
     $finish;
 end
 
