@@ -1,0 +1,25 @@
+# vsim -c -do "run -all; quit -f" tb 
+# Start time: 23:03:27 on Sep 19,2026
+# Loading work.tb
+# Loading work.top_module
+# Loading work.shiftreg
+# Loading work.fulladder
+# Loading work.dff_u
+# Loading work.dlatch_nand
+# Loading work.top_module_behav
+# Loading work.mux2
+# run -all
+# 
+#     a +  b = sum     struct  behav
+#    --------------------------------
+#     3 +  5 =  8       1000    1000
+#     1 +  1 =  2       0010    0010
+#     6 +  7 = 13       1101    1101
+#     9 +  4 = 13       1101    1101
+#    15 +  1 =  0       0000    0000
+#    12 +  9 =  5       0101    0101
+# 
+# ** Note: $finish    : Lab1-1tb.v(41)
+#    Time: 296 ps  Iteration: 0  Instance: /tb
+# End time: 23:03:27 on Sep 19,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0

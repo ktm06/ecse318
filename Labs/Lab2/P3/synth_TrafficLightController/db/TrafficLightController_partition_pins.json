@@ -1,0 +1,45 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "Ga",
+					"strict" : false
+				},
+				{
+					"name" : "Ya",
+					"strict" : false
+				},
+				{
+					"name" : "Ra",
+					"strict" : false
+				},
+				{
+					"name" : "Gb",
+					"strict" : false
+				},
+				{
+					"name" : "Yb",
+					"strict" : false
+				},
+				{
+					"name" : "Rb",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "Sb",
+					"strict" : false
+				},
+				{
+					"name" : "Sa",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

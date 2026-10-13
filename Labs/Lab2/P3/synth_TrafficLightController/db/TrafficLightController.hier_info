@@ -1,0 +1,23 @@
+|TrafficLightController
+clk => error.CLK
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => Rb~reg0.CLK
+clk => Yb~reg0.CLK
+clk => Gb~reg0.CLK
+clk => Ra~reg0.CLK
+clk => Ya~reg0.CLK
+clk => Ga~reg0.CLK
+clk => state~5.DATAIN
+Sa => always0.IN1
+Sb => always0.IN1
+Sb => always0.IN1
+Ga <= Ga~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Ya <= Ya~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Ra <= Ra~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Gb <= Gb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Yb <= Yb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Rb <= Rb~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

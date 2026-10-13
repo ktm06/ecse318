@@ -1,0 +1,10 @@
+# vsim -c -sv_seed 42 -do "run -all; quit -f" light_tb 
+# Start time: 12:25:55 on Oct 04,2026
+# Loading work.light_tb
+# Loading work.TrafficLightController
+# run -all
+# Errors: 0
+# ** Note: $finish    : light_tb.v(31)
+#    Time: 19995 ns  Iteration: 0  Instance: /light_tb
+# End time: 12:25:55 on Oct 04,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
