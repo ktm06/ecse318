@@ -36,6 +36,55 @@ initial begin
 	win = 0;
 end
 
+reg [2:0] src_column;
+reg [1:0] src_freecell;
+reg src_tableau;      
+reg src_freecell;
+reg src_illegal;
+
+reg [2:0] dest_column;      
+reg [1:0] dest_freecell;       
+reg dest_tableau;     
+reg dest_freecell;    
+reg dest_homecell;    
+
+// Decode source
+always @(*) begin
+    src_tableau = (source[3] == 0);
+    src_freecell = (source[3:2] == 2'b10);
+    src_illegal = (source[3:2] == 2'b11);
+
+    if (src_tableau) begin
+        src_column = source[2:0];
+        src_freecell = 0;
+    end else if (src_freecell) begin
+        src_column = 0;
+        src_freecell = source[1:0];
+    end else begin
+        src_column = 0;
+        src_freecell = 0;
+    end
+end
+
+// Decode destination
+always @(*) begin
+    dest_tableau = (dest[3] == 0);
+    dest_freecell = (dest[3:2] == 2'b10);
+    dest_homecell = (dest[3:2] == 2'b11);
+
+    if (dest_tableau) begin
+        dest_column = dest[2:0];
+        dest_freecell = 0;
+    end else if (dest_freecell) begin
+        dest_column = 0;
+        dest_freecell = dest[1:0];
+    end else begin
+        dest_column = 0;
+        dest_freecell = 0;
+    end
+end
+
+
 always @(posedge clock) begin
 	
 end
