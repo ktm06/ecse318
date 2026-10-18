@@ -1,0 +1,27 @@
+# vsim -c work.TB_divider -do "run -all; quit -f" 
+# Start time: 22:43:35 on Oct 17,2026
+# Loading work.TB_divider
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.divider(behavioral)
+# run -all
+# ===Start===
+# 
+# Case 1: 7/2
+# 
+# Quotient: 0011, Remainder:0001
+# 
+# Case 2: 6/2
+# 
+# Quotient: 0011, Remainder:0000
+# 
+# Case 3: 9/4
+# 
+# Quotient: 0010, Remainder:0001
+# 
+# ** Note: $finish    : TB_divider.v(67)
+#    Time: 4310 ns  Iteration: 0  Instance: /TB_divider
+# End time: 22:43:35 on Oct 17,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0

@@ -11,7 +11,7 @@ entity divider is
         divisor  : in  std_logic_vector(N-1 downto 0);
         dividend : in  std_logic_vector(N-1 downto 0);
         q        : out std_logic_vector(N-1 downto 0);
-        r        : out std_logic_vector(N-1 downto 0);
+        r_out    : out std_logic_vector(N-1 downto 0);
         clk      : in  std_logic;
         reset    : in  std_logic;
         start    : in  std_logic
@@ -24,7 +24,7 @@ architecture Behavioral of divider is
     signal R, Mwide, R_N, sum : std_logic_vector(N downto 0);  
     signal control, sign : std_logic;                  
 
-    variable count : integer range 0 to CNT+1;
+    signal count : integer range 0 to CNT+1;
 begin
 
     sign <= R(N);
@@ -37,20 +37,20 @@ begin
            std_logic_vector(unsigned(R_N) - unsigned(Mwide));
 
     q <= D;
-    r <= R(N-1 downto 0);
+    r_out <= R(N-1 downto 0);
 
     process(clk, reset) begin
         if rising_edge(reset) then
             R <= (others => '0');
             D <= (others => '0');
             M <= (others => '0');
-            count := 0;
+            count <= 0;
         elsif rising_edge(clk) then
             if start = '1' then
                 D <= dividend;
                 M <= divisor;
                 R <= (others => '0');
-                count := CNT + 1;
+                count <= CNT + 1;
             else
                 if count > 1 then
                     R <= sum;
@@ -59,10 +59,11 @@ begin
                     else
                         D <= D(N-2 downto 1) & not sign & '0';
                     end if;
-                    count := count - 1;
+                    count <= count - 1;
                 elsif count = 1 then
                     D(0) <= not sign;
-                    count := 0;
+                    if sign = '1' then R <= sum; end if;
+                    count <= 0;
                 end if;
             end if;
         end if;

@@ -1,0 +1,146 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/kippe/ecse318/Labs/Lab3/P3
+vRxFIFO
+Z1 !s110 1792304513
+!i10b 1
+!s100 Go:5DCJC59acfE<T?BLF42
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+INcIdfAf>hJ3YLWc3^<KFl1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1792304504
+8RxFIFO.v
+FRxFIFO.v
+!i122 0
+L0 1 38
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1792304513.000000
+!s107 ssptest.v|ssp.v|TXRXLogic.v|RxFIFO.v|TxFIFO.v|
+Z6 !s90 TxFIFO.v|RxFIFO.v|TXRXLogic.v|ssp.v|ssptest.v|
+!i113 1
+Z7 tCvgOpt 0
+n@rx@f@i@f@o
+vssp
+R1
+!i10b 1
+!s100 3d[=LQRHK4lnVhe>Va_kC0
+R2
+I_hn?Vj7UYb21O9oEl1kIH1
+R3
+R0
+w1792304295
+8ssp.v
+Fssp.v
+!i122 0
+L0 1 65
+R4
+r1
+!s85 0
+31
+R5
+Z8 !s107 ssptest.v|ssp.v|TXRXLogic.v|RxFIFO.v|TxFIFO.v|
+R6
+!i113 1
+R7
+vssp_test1
+R1
+!i10b 1
+!s100 NYD97lTh9Q8bmKBGl?8Eo2
+R2
+I7hY`zk;amK51Z>_i`TKYV0
+R3
+R0
+Z9 w1792174181
+Z10 8ssptest.v
+Z11 Fssptest.v
+!i122 0
+L0 1 45
+R4
+r1
+!s85 0
+31
+R5
+R8
+R6
+!i113 1
+R7
+vssp_test2
+R1
+!i10b 1
+!s100 LVPGF?ceP7W8YLcIB1Lch1
+R2
+I:13:abRNdP[UVOPRWBFX=1
+R3
+R0
+R9
+R10
+R11
+!i122 0
+L0 47 45
+R4
+r1
+!s85 0
+31
+R5
+R8
+R6
+!i113 1
+R7
+vTxFIFO
+R1
+!i10b 1
+!s100 `3Cn4:8QB9;CZ7=4;zgoF0
+R2
+IQVJ8On^IUDiFNG2?jZaN63
+R3
+R0
+w1792301318
+8TxFIFO.v
+FTxFIFO.v
+!i122 0
+L0 1 41
+R4
+r1
+!s85 0
+31
+R5
+R8
+R6
+!i113 1
+R7
+n@tx@f@i@f@o
+vTXRXLogic
+R1
+!i10b 1
+!s100 N`Fa?Nl[h^;Cd0J>jO]4N3
+R2
+IDg5m?4H0N8klheR9EA_[22
+R3
+R0
+w1792304093
+8TXRXLogic.v
+FTXRXLogic.v
+!i122 0
+L0 1 79
+R4
+r1
+!s85 0
+31
+R5
+R8
+R6
+!i113 1
+R7
+n@t@x@r@x@logic

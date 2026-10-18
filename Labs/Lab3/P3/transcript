@@ -1,0 +1,12 @@
+# vsim -c work.ssp_test2 -do "run -all; quit -f" 
+# Start time: 02:21:54 on Oct 18,2026
+# Loading work.ssp_test2
+# Loading work.ssp
+# Loading work.TxFIFO
+# Loading work.RxFIFO
+# Loading work.TXRXLogic
+# run -all
+# ** Note: $finish    : ssptest.v(81)
+#    Time: 5016 ps  Iteration: 0  Instance: /ssp_test2
+# End time: 02:21:55 on Oct 18,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0

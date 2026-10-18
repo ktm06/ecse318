@@ -12,9 +12,9 @@ module TB_divider ();
         .N(4), 
         .CNT(4)) uut (
             .divisor(divisor),
-            .divident(dividend),
+            .dividend(dividend),
             .q(quotient),
-            .r(result),
+            .r_out(result),
             .clk(clk),
             .reset(reset),
             .start(start)
