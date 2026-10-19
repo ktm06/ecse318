@@ -1,0 +1,15 @@
+# vsim -c -lib work_verilog -do "run -all; quit -f" tb_Comparison 
+# Start time: 21:48:35 on Oct 18,2026
+# Loading work_verilog.tb_Comparison
+# Loading work_verilog.comparison
+# Loading work_verilog.ConditionalSumAdder
+# Loading work_verilog.Leaf
+# Loading work_verilog.Resolve
+# Loading work_verilog.Merge
+# run -all
+# Example: 01101110 + 01010101 = 011000011 (195)
+# all 131072 cases correct, comparison == ConditionalSumAdder
+# ** Note: $finish    : Tb_Comparison.v(34)
+#    Time: 131073 ns  Iteration: 0  Instance: /tb_Comparison
+# End time: 21:48:36 on Oct 18,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
