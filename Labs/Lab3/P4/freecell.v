@@ -70,7 +70,7 @@ always @(*) begin
     end else if (freecell_dest) begin
         dest_column = 3'd0;
         dest_freecell = dest[1:0];
-    end else begin
+	end	else begin
         dest_column = 3'd0;
         dest_freecell = 2'd0;
     end
@@ -90,7 +90,6 @@ always @(*) begin
             src_valid = 1;
             src_card = tableau[src_column][column_count[src_column] - 1];
         end
-		// add a card to an empty column?
     end else if (freecell_src) begin
         if (freecell_card[src_freecell]) begin
             src_valid = 1;
@@ -104,7 +103,13 @@ always @(*) begin
     dest_valid = 0;
 
     if (homecell_dest) begin
-        dest_valid = 1;
+		if (home_count[src_card[5:4]] == 0) begin
+			dest_valid = (src_card[3:0] == 4'b0001);
+		end else begin
+			reg [5:0] top_card = homecells[src_card[5:4]][home_count[src_card[5:4]] - 1];
+            reg [3:0] top_val = top_card[3:0];
+            dest_valid = (src_card[3:0] == top_val + 1); 
+		end
     end else if (freecell_dest) begin
         dest_valid = !freecell_card[dest_freecell];
     end else if (tableau_dest) begin
@@ -121,47 +126,27 @@ function valid_tableau;
     input [5:0] src_card;
     input [5:0] dest_top_card;
     begin
-        // Extract suits and values
+        
         reg [1:0] src_suit = src_card[5:4];
         reg [1:0] dest_suit = dest_top_card[5:4];
         reg [3:0] src_val = src_card[3:0];
         reg [3:0] dest_val = dest_top_card[3:0];
 
-        // Check color alternation
-        reg src_red = (src_suit == 2'b00) || (src_suit == 2'b01); // Hearts or Diamonds
-        reg dest_red = (dest_suit == 2'b00) || (dest_suit == 2'b01);
-        reg color_ok = (src_red != dest_red);
+        reg src = (src_suit == 2'b00) || (src_suit == 2'b01);
+        reg dest = (dest_suit == 2'b00) || (dest_suit == 2'b01);
+        reg color_ok = (src != dest);
 
-        // Check sequence: src_val must be exactly one less than dest_val
         reg sequence_ok = (src_val == dest_val - 1);
 
         valid_tableau = color_ok && sequence_ok;
     end
 endfunction
 
-function valid_homecell;
-    input [5:0] src_card;
-    input [3:0] homecell_suit;  // 0=Hearts, 1=Diamonds, 2=Spades, 3=Clubs
-    begin
-        reg [1:0] src_suit = src_card[5:4];
-        reg [3:0] src_val = src_card[3:0];
-
-        // Check if suit matches
-        reg suit_ok = (src_suit == homecell_suit);
-
-        // Check if homecell is empty (only Ace allowed) or next in sequence
-        reg sequence_ok;
-        if (home_count[homecell_suit] == 0) begin
-            sequence_ok = (src_val == 1);  // Ace
-        end else begin
-            reg [5:0] top_card = homecells[homecell_suit][home_count[homecell_suit] - 1];
-            reg [3:0] top_val = top_card[3:0];
-            sequence_ok = (src_val == top_val + 1);
-        end
-
-        valid_homecell = suit_ok && sequence_ok;
-    end
-endfunction
+// Lines 109 - 111 can be put in the function below
+/*function valid_homecell;
+    input [5:0] top_homecell_card;
+    begin {} end
+endfunction*/
 
 always @(posedge clock) begin
 	// Remove card from source
