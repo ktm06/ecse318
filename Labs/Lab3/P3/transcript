@@ -12,3 +12,19 @@
 #  wave zoom full
 # {0 ps} {5261 ps}
 vsim -voptargs=+acc work.ssp_test2 -do "add wave -label SSPCLKOUT /ssp_test2/clk_wire; add wave -label SSPFSSOUT /ssp_test2/fss_wire; add wave -label SSPTXD /ssp_test2/tx_to_rx; add wave -label SSPOE_B /ssp_test2/oe_b; run 5010; wave zoom range 660 1620"
+# End time: 22:48:37 on Oct 18,2026, Elapsed time: 0:11:22
+# Errors: 0, Warnings: 0
+# vsim -voptargs="+acc" work.ssp_test2 -do "add wave -label SSPCLKOUT /ssp_test2/clk_wire; add wave -label SSPFSSOUT /ssp_test2/fss_wire; add wave -label SSPTXD /ssp_test2/tx_to_rx; add wave -label SSPOE_B /ssp_test2/oe_b; run 5010; wave zoom range 660 1620" 
+# Start time: 22:48:37 on Oct 18,2026
+# Loading work.ssp_test2
+# Loading work.ssp
+# Loading work.TxFIFO
+# Loading work.RxFIFO
+# Loading work.TXRXLogic
+# add wave -label SSPCLKOUT /ssp_test2/clk_wire
+#  add wave -label SSPFSSOUT /ssp_test2/fss_wire
+#  add wave -label SSPTXD /ssp_test2/tx_to_rx
+#  add wave -label SSPOE_B /ssp_test2/oe_b
+#  run 5010
+#  wave zoom range 660 1620
+# {660 ps} {1620 ps}
