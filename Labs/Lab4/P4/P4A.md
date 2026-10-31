@@ -1,0 +1,4 @@
+Adding a sequence of 10 8-bit binary numbers using a CSA design uses an 8 stage CSA followed by a regular adder if all the 3 inputs adders computed their outputs sequentially. 
+However, if all the 3 input adders computes their CSA outputs in parallel, then a 5 stage CSA followed by a regular adder can be used to add the sequence of numbers. 
+This is because the inital 10 numbers can be group into sets of 3s with the remainder number temporarily unattended, then each sets of 3 can have their inputs summed in a CSA stage resulting in 7 remaining operands (3 sums, 3 carry outs and the remaining 10th number). 
+If this process is recursively performed for the 7 operands and their CSA stage outputs then then number of operands after all the parallel CSA stage changes from 10 to 7 to 5 to 4 to 3 to 2 showing the 5 stages.
