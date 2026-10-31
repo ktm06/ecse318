@@ -2,29 +2,6 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;
 
-entity CSA_stage is
-    port (
-        s : out std_logic;
-        c_out : out std_logic;
-        a : in std_logic;
-        b : in std_logic;
-        c : in std_logic
-    );
-end CSA_stage;
-
-architecture Behavioral of CSA_stage is
-
-    signal p, g : std_logic;
-
-begin
-
-    p <= a xor b;
-    g <= a and b;
-    s <= p xor c;
-    c_out <= g or (c and p);
-
-end Behavioral;
-
 entity sequence_adder is
     port (
         sum : out std_logic_vector(11 downto 0);
@@ -78,7 +55,7 @@ begin
     carry_9(1)(0) <= '0';
     carry_9(2)(0) <= '0';
 
-    gen_block: for i in 0 to 11 generate
+    gen_stage1: for i in 0 to 11 generate
     U1_1 : entity work.CSA_stage
         port map (
             s => CSA_8(0)(i), c_out => carry_9(0)(i + 1), a => W0(i), b => W1(i), c => W2(i)
@@ -91,7 +68,7 @@ begin
         port map (
             s => CSA_8(2)(i), c_out => carry_9(2)(i + 1), a => W6(i), b => W7(i), c => W8(i)
         );
-    end generate gen_block;
+    end generate gen_stage1;
     
     CSA_8(3) <= carry_9(0)(11 downto 0);
     CSA_8(4) <= carry_9(1)(11 downto 0);
@@ -102,7 +79,7 @@ begin
     carry_10(0)(0) <= '0';
     carry_10(1)(0) <= '0';
     
-    gen_block: for i in 0 to 11 generate
+    gen_stage2: for i in 0 to 11 generate
     U2_1 : entity work.CSA_stage
         port map (
             s => CSA_9(0)(i), c_out => carry_10(0)(i + 1), a => CSA_8(0)(i), b => CSA_8(1)(i), c => CSA_8(2)(i)
@@ -111,7 +88,7 @@ begin
         port map (
             s => CSA_9(1)(i), c_out => carry_10(1)(i + 1), a => CSA_8(3)(i), b => CSA_8(4)(i), c => CSA_8(5)(i)
         );
-    end generate gen_block;
+    end generate gen_stage2;
     
     CSA_9(2) <= carry_10(0)(11 downto 0);
     CSA_9(3) <= carry_10(1)(11 downto 0);
@@ -121,7 +98,7 @@ begin
     carry_11(0)(0) <= '0';
     carry_11(1)(0) <= '0';
 
-    gen_block: for i in 0 to 11 generate
+    gen_stage3: for i in 0 to 11 generate
     U3_1 : entity work.CSA_stage
         port map (
             s => CSA_10(0)(i), c_out => carry_11(0)(i + 1), a => CSA_9(0)(i), b => CSA_9(1)(i), c => CSA_9(2)(i)
@@ -130,7 +107,7 @@ begin
         port map (
             s => CSA_10(1)(i), c_out => carry_11(1)(i + 1), a => CSA_9(3)(i), b => CSA_9(4)(i), c => '0'
         );
-    end generate gen_block;
+    end generate gen_stage3;
     
     CSA_10(2) <= carry_11(0)(11 downto 0);
     CSA_10(3) <= carry_11(1)(11 downto 0);
@@ -138,26 +115,26 @@ begin
     -- 4 operands -> 3 operands
     carry_12(0) <= '0';
 
-    gen_block: for i in 0 to 11 generate
+    gen_stage4: for i in 0 to 11 generate
     U4_1 : entity work.CSA_stage
         port map (
-        s => CSA_11(0)(i), c_out => carry_12(1)(i + 1), a => CSA_10(0)(i), b => CSA_10(1)(i), c => CSA_10(2)(i)
-      );
-    end generate gen_block;
+            s => CSA_11(0)(i), c_out => carry_12(i + 1), a => CSA_10(0)(i), b => CSA_10(1)(i), c => CSA_10(2)(i)
+        );
+    end generate gen_stage4;
 
-    CSA_11[1] <= carry_12(11 downto 0);
+    CSA_11(1) <= carry_12(11 downto 0);
     CSA_11(2) <= CSA_10(3);
 
     -- 3 operands -> 2 operands
     carry_13(0) <= '0';
 
-    gen_block: for i in 0 to 11 generate
+    gen_stage5: for i in 0 to 11 generate
     U5_1 : entity work.CSA_stage
         port map (
         s => CSA_12(i), c_out => carry_13(i + 1), a => CSA_11(0)(i), b => CSA_11(1)(i), c => CSA_11(2)(i)
       );
-    end generate gen_block;
+    end generate gen_stage5;
 
-    sum <= std_logic_vector(unsigned(CSA_12) + unsigned(carry_13));
+    sum <= std_logic_vector(unsigned(CSA_12) + unsigned(carry_13(11 downto 0)));
 
 end Behavioral;

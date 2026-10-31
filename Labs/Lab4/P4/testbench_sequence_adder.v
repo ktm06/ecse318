@@ -1,5 +1,5 @@
 `timescale 1ns/10ps
-module TF_sequence_adder();
+module TB_sequence_adder();
 
 wire [11:0] sum;
 reg [7:0] O0, O1, O2, O3, O4, O5, O6, O7, O8, O9;
