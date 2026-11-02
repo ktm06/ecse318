@@ -1,0 +1,261 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/kippe/ecse318/Labs/Lab4/P5
+Ecache
+Z1 w1793495157
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 1
+R0
+Z4 8cache.vhd
+Z5 Fcache.vhd
+l0
+L4 1
+Voc]d?M@1U[5ObIVUQF?@>3
+!s100 >YTD8cU>[MhAh5SB42idG2
+Z6 OV;C;2020.1;71
+32
+Z7 !s110 1793577080
+!i10b 1
+Z8 !s108 1793577080.000000
+Z9 !s90 tag_ram.vhd|data_ram.vhd|cache_control.vhd|cache.vhd|main_memory.vhd|system_tb.vhd|
+Z10 !s107 system_tb.vhd|main_memory.vhd|cache.vhd|cache_control.vhd|data_ram.vhd|tag_ram.vhd|
+!i113 1
+Z11 tExplicit 1 CvgOpt 0
+Astructural
+Z12 DEx4 work 13 cache_control 0 22 OGo^AR7hT3@BA8VFH;I?_3
+Z13 DEx4 work 8 data_ram 0 22 7H;amo^<XclRS>fnTEJ@l1
+Z14 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z15 DEx4 work 7 tag_ram 0 22 imRHOATXA@5c2?Pi:6lK:0
+R2
+R3
+Z16 DEx4 work 5 cache 0 22 oc]d?M@1U[5ObIVUQF?@>3
+!i122 1
+l28
+Z17 L20 51
+Z18 Vgk9IG_XR:mHd0gQBPN>HH3
+Z19 !s100 :ZQ6k0Ih7I?l:8mS=L>`]0
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+Ecache_control
+Z20 w1793494762
+R14
+R2
+R3
+!i122 1
+R0
+Z21 8cache_control.vhd
+Z22 Fcache_control.vhd
+l0
+L5 1
+VOGo^AR7hT3@BA8VFH;I?_3
+!s100 Z;S3f1NTU>4ASNBc:EDL30
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+Artl
+R14
+R2
+R3
+R12
+!i122 1
+l39
+Z23 L25 93
+Z24 VnD7ZORJ55PRz9Sz^3UBez3
+Z25 !s100 boJ7Da@4_W6NDE>3>;gia1
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+Edata_ram
+Z26 w1793495466
+R14
+R2
+R3
+!i122 1
+R0
+Z27 8data_ram.vhd
+Z28 Fdata_ram.vhd
+l0
+L5 1
+V7H;amo^<XclRS>fnTEJ@l1
+!s100 _fj1XV59T^J6I6Gf^2hl92
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+Abehav
+R14
+R2
+R3
+R13
+!i122 1
+l21
+Z29 L15 27
+Z30 VbFBhZdggkG:7Q^MAIn;]=2
+Z31 !s100 eig8`W>`ZPXCJFV4J40PX0
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+Emain_memory
+Z32 w1793571477
+R14
+R2
+R3
+!i122 1
+R0
+Z33 8main_memory.vhd
+Z34 Fmain_memory.vhd
+l0
+L5 1
+VD?h`CL<jzZ8WO63b:RX1k0
+!s100 3:D>ZUn_`<]FblZlk?]<W1
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+Abehav
+R14
+R2
+R3
+Z35 DEx4 work 11 main_memory 0 22 D?h`CL<jzZ8WO63b:RX1k0
+!i122 1
+l32
+Z36 L15 57
+Z37 VF5K?45NiWO<5;DFA1Zk>H2
+Z38 !s100 [z]5;D46d;C:hH]@DF4h`0
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+Esystem_tb
+Z39 w1793577076
+R14
+R2
+R3
+!i122 1
+R0
+Z40 8system_tb.vhd
+Z41 Fsystem_tb.vhd
+l0
+L6 1
+V?6dViQPVb;ig31ZVKzD>V1
+!s100 <<k14Vj6GUSkN9TX5b:z]2
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+Asim
+R35
+R16
+R14
+R2
+R3
+Z42 DEx4 work 9 system_tb 0 22 ?6dViQPVb;ig31ZVKzD>V1
+!i122 1
+l54
+L9 186
+VggF;1J2[V`>EJP7g2jI6D3
+!s100 hEoKKib<R?<@kJY>ea^1;3
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+Etag_ram
+Z43 w1793495186
+R14
+R2
+R3
+!i122 1
+R0
+Z44 8tag_ram.vhd
+Z45 Ftag_ram.vhd
+l0
+L5 1
+VimRHOATXA@5c2?Pi:6lK:0
+!s100 a731CCP@9Z52A??;f0PSB3
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+Abehav
+R14
+R2
+R3
+R15
+!i122 1
+l23
+Z46 L16 37
+Z47 VD:[MfORB;ook1@2RDB4J>0
+Z48 !s100 3T7zaKRkmki^TB^F[ZEZ20
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
