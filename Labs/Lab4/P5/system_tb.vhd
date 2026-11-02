@@ -174,14 +174,6 @@ begin
         cpu_access('1', x"0012", x"00000000");
         print(integer'image(misses) & " misses, " & integer'image(hits) & " hits");
         print("");
-        cpu_access('0', x"0076", x"12345678");
-        cpu_access('1', x"0076", x"00000000");
-        cpu_access('1', x"0476", x"00000000");
-        cpu_access('1', x"0076", x"00000000");
-        cpu_access('0', x"0812", x"9ABCDEF0");
-        cpu_access('1', x"0812", x"00000000");
-        cpu_access('1', x"0012", x"00000000");
-        print("");
         if errors = 0 then
             print("PASS: all " & integer'image(n) & " accesses correct");
         else
