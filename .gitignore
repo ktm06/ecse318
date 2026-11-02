@@ -1,2 +1,6 @@
 *.txt
 .gitignore
+transcript
+*.wlf
+wlft*
+work/
